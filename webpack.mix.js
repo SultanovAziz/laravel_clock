@@ -11,7 +11,25 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+
+mix.styles([
+    'resources/assets/css/bootstrap.css',
+    'resources/assets/css/style.css',
+    'resources/assets/css/memenu.css',
+],'public/assets/css/style.css');
+
+mix.scripts([
+     'resources/assets/js/jquery-1.11.0.min.js',
+    'resources/assets/js/bootstrap.min.js',
+    'resources/assets/js/responsiveslides.min.js',
+    'resources/assets/js/imagezoom.js',
+    'resources/assets/js/jquery.flexslider.js',
+    'resources/assets/js/simpleCart.min.js',
+    'resources/assets/js/memenu.js',
+    'resources/assets/js/jquery.easydropdown.js',
+],'public/assets/js/scripts.js');
+
+mix.copyDirectory('resources/assets/images','public/assets/images');
+mix.copyDirectory('resources/assets/fonts','public/assets/fonts');
+
+
