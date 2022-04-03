@@ -14,10 +14,10 @@
             <div class="col-md-6 top-header-left">
                 <div class="drop">
                     <div class="box">
-                        <select tabindex="4" class="dropdown drop">
-                            <option value="" class="label">Dollar :</option>
-                            <option value="1">Dollar</option>
-                            <option value="2">Euro</option>
+                        <select id="currency" tabindex="4" class="dropdown drop">
+                            @php
+                                App\Facades\Currency::run(resource_path('views/currency/currency.php'));
+                            @endphp
                         </select>
                     </div>
                     <div class="box1">
@@ -297,6 +297,7 @@
 
 <!--script-start-->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 <script>
     // You can also use "$(window).load(function() {"
     $(function () {

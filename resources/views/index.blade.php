@@ -24,6 +24,9 @@
             </div>
         <!--about-end-->
         @endif
+        @php
+            $currency = App\Facades\Currency::getCurrency(App\Facades\Currency::getCurrencies());
+        @endphp
         @if ($hits)
             <!--product-starts-->
             <div class="product">
@@ -40,9 +43,9 @@
                                                 <p>Explore Now</p>
 
                                                 <h4>
-                                                    <a data-id="<{{ $hit->id }}" class="add-to-cart-link" href="cart/add?id={{$hit->id}}"><i></i></a> <span class=" item_price">{{ $hit->price }}</span>
+                                                    <a data-id="<{{ $hit->id }}" class="add-to-cart-link" href="cart/add?id={{$hit->id}}"><i></i></a> <span class=" item_price">@currency_money($hit->price,$currency['code'])</span>
                                                     @if($hit->old_price)
-                                                        <small><del>{{ $hit->old_price }}</del></small>
+                                                        <small><del>@currency_money($hit->old_price,$currency['code'])</del></small>
                                                      @endif
                                                 </h4>
                                             </div>

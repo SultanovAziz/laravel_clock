@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Currency\CurrencyService;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(CurrencyService::class, function(){
+            return new CurrencyService(
+                config("currency.base"),
+                config("currency.rates"),
+                config("currency.default"),
+            );
+        });
     }
 
     /**
@@ -23,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('currency_money', function ($amount,$fromCurrencyCode=null) {
+            return "<?php echo App\Facades\Currency::convertAndFormatToDefault($amount,$fromCurrencyCode) ?>";
+        });
     }
 }
