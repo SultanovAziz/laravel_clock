@@ -17,9 +17,6 @@ class MainController extends Controller
             ['hit','=','1'],
             ['status','=','1'],
         ])->limit(8)->get()->chunk(4);
-//        //$hits = array_chunk($hits,4);
-//        dump($hits);
-
         return view('index',compact('brands','hits'));
     }
 }
