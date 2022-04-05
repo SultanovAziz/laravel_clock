@@ -61,7 +61,7 @@
                                                 <p>Explore Now</p>
 
                                                 <h4>
-                                                    <a data-id="<{{ $hit->id }}" class="add-to-cart-link" href="cart/add?id={{$hit->id}}"><i></i></a> <span class=" item_price">@currency_money($hit->price,$currency['code'])</span>
+                                                    <a data-id="{{ $hit->id }}" class="add-to-cart-link" href="cart/add?id={{$hit->id}}"><i></i></a> <span class=" item_price">@currency_money($hit->price,$currency['code'])</span>
                                                     @if($hit->old_price)
                                                         <small><del>@currency_money($hit->old_price,$currency['code'])</del></small>
                                                      @endif

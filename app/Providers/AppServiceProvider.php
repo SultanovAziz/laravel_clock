@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Currency\CurrencyService;
+use App\Services\RecentlyViewed\RecentlyViewedService;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
                 config("currency.default"),
             );
         });
+        $this->app->singleton(RecentlyViewedService::class);
     }
 
     /**
