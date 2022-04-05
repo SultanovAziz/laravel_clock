@@ -49,7 +49,9 @@ class CurrencyService
      * @return float
      */
     public function convertToDefault($amount, $fromCurrencyCode = null){
-        if(!$fromCurrencyCode){
+        if($fromCurrencyCode == $this->baseCurrency)
+            return $amount;
+        else if(!$fromCurrencyCode){
             $fromCurrencyCode = $this->defaultCurrency;
         }
         $rate = $this->currencies[$this->baseCurrency][$fromCurrencyCode];

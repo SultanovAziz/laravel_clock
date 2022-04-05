@@ -300,6 +300,7 @@
 
     });
 </script>
+
 <script>
     // Can also be used with $(document).ready()
     $(window).load(function() {
@@ -309,6 +310,7 @@
         });
     });
 </script>
+
 <script type="text/javascript">
     $(function() {
 
@@ -330,6 +332,13 @@
         });
 
     });
+</script>
+<script>
+    $('#currency').change(function(){
+        //window.location  = 'currency/change?curr=' + $(this).val();
+        window.location = "{{ route('currency')}}?curr="+ $(this).val();
+    });
+
 </script>
 <!--script-end-->
 </body>
