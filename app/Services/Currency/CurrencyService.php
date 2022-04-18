@@ -17,11 +17,7 @@ class CurrencyService
         $this->defaultCurrency = $defaultCurrency;
     }
 
-    public function run($tpl)
-    {
-        $this->currency = $this->getCurrency($this->currencies);
-        echo $this->getHtml($tpl);
-    }
+
 
     public function getCurrencies()
     {
@@ -48,7 +44,8 @@ class CurrencyService
      * @param null $fromCurrencyCode
      * @return float
      */
-    public function convertToDefault($amount, $fromCurrencyCode = null){
+    public function convertToDefault($amount, $fromCurrencyCode = null)
+    {
         if($fromCurrencyCode == $this->baseCurrency)
             return $amount;
         else if(!$fromCurrencyCode){
@@ -74,17 +71,7 @@ class CurrencyService
         return number_format($this->convertToDefault($amount, $fromCurrency), 0, ',', ' ').__('currency.'.$fromCurrency);
     }
 
-    /**
-     * Возврат шаблона выборки валюты
-     * @param $tpl
-     * @return false|string
-     */
-    public function getHtml($tpl)
-    {
-        ob_start();
-        require_once $tpl;
-        return ob_get_clean();
-    }
+
 
 
 }

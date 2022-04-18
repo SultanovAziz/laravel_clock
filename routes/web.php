@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','MainController@index')->name('home');
-Route::get('/currency/change','CurrencyController@change')->name('currency');
-Route::get('/product/{alias}','ProductController@index')->name('product.alias');
-Route::get('/categories/{alias}','CategoriesController@index')->name('categories.alias');
+Route::get('/',[MainController::class,'index'])->name('home');
+Route::get('/currency/change',[CurrencyController::class,'change'])->name('currency');
+Route::get('/product/{alias}',[ProductController::class,'index'])->name('product.alias');
+Route::get('/categories/{alias}',[CategoriesController::class,'index'])->name('categories.alias');
+Route::get('/cart/show',function () {
+
+})->name('cart.show');
+
 

@@ -6,6 +6,8 @@ use App\Services\Currency\CurrencyService;
 use App\Services\RecentlyViewed\RecentlyViewedService;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use App\Service\Filter\FilterService;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
         $this->app->singleton(CurrencyService::class, function(){
             return new CurrencyService(
                 config("currency.base"),
@@ -24,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             );
         });
         $this->app->singleton(RecentlyViewedService::class);
+        $this->app->singleton(FilterService::class);
     }
 
     /**

@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ __('Home') }}</title>
+    <title> Home </title>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<x-header.top>
-    <x-header.top.header-left class="drop">
-
-        <x-select  id="currency">
-            <x-currency :currency="$currency" />
-        </x-select>
-
-        <x-select class="drop">
-            <x-option class="label" > {{ __('English') }}</x-option>
-            <x-option> {{ __('French') }}</x-option>
-            <x-option> {{ __('German') }}</x-option>
-        </x-select>
-
-    </x-header.top.header-left>
-
-    <x-header.top.header-left class="cart box_1">
-        <x-shop-link :href="route('cart.show')">
-            <div class="total">
-                <img src="{{ asset('assets/images/cart-1.png') }}" alt="">
-                <x-shop-span :cart="[]"/>
+<!--top-header-->
+<div class="top-header">
+    <div class="container">
+        <div class="top-header-main">
+            <div class="col-md-6 top-header-left">
+                <div class="drop">
+                    <div class="box">
+                        <select id="currency" tabindex="4" class="dropdown drop">
+                            @php
+                                App\Facades\Currency::run(resource_path('views/currency/currency.php'));
+                            @endphp
+                        </select>
+                    </div>
+                    <div class="box1">
+                        <select tabindex="4" class="dropdown">
+                            <option value="" class="label">English :</option>
+                            <option value="1">English</option>
+                            <option value="2">French</option>
+                            <option value="3">German</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
-        </x-shop-link>
-    </x-header.top.header-left>
-
-</x-header.top>
+            <div class="col-md-6 top-header-left">
+                <div class="cart box_1">
+                    <a href="checkout.html">
+                        <div class="total">
+                            <span class="simpleCart_total"></span></div>
+                        <img src="{{asset('assets/images/cart-1.png')}}" alt="" />
+                    </a>
+                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <x-shop-link :href="route('home')"> <h1>{{ __('Luxury Watches') }}</h1></x-shop-link>
+    <a href="{{ route('home') }}"><h1>Luxury Watches</h1></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->
@@ -285,6 +300,7 @@
 
     });
 </script>
+
 <script>
     // Can also be used with $(document).ready()
     $(window).load(function() {
@@ -294,6 +310,7 @@
         });
     });
 </script>
+
 <script type="text/javascript">
     $(function() {
 
