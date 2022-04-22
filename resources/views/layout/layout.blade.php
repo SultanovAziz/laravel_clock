@@ -2,20 +2,20 @@
 <html>
 <head>
     <title>{{ __('Home') }}</title>
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
 <x-header.top>
     <x-header.top.header-left class="drop">
 
-        <x-select  id="currency">
-            <x-currency :currency="$currency" />
+        <x-select id="currency">
+            <x-currency :currency="$currency"/>
         </x-select>
 
         <x-select class="drop">
-            <x-option class="label" > {{ __('English') }}</x-option>
+            <x-option class="label"> {{ __('English') }}</x-option>
             <x-option> {{ __('French') }}</x-option>
             <x-option> {{ __('German') }}</x-option>
         </x-select>
@@ -32,9 +32,10 @@
     </x-header.top.header-left>
 
 </x-header.top>
+
 <!--start-logo-->
 <div class="logo">
-    <x-shop-link :href="route('home')"> <h1>{{ __('Luxury Watches') }}</h1></x-shop-link>
+    <x-shop-link :href="route('home')"><h1>{{ __('Luxury Watches') }}</h1></x-shop-link>
 </div>
 <!--start-logo-->
 <!--bottom-header-->
@@ -43,7 +44,8 @@
         <div class="header">
             <div class="col-md-9 header-left">
                 <div class="top-nav">
-                    <ul class="memenu skyblue"><li class="active"><a href="index.html">Home</a></li>
+                    <ul class="memenu skyblue">
+                        <li class="active"><a href="index.html">Home</a></li>
                         <li class="grid"><a href="#">Men</a>
                             <div class="mepanel">
                                 <div class="row">
@@ -179,22 +181,23 @@
                         </li>
                     </ul>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
             <div class="col-md-3 header-right">
                 <div class="search-bar">
-                    <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="text" value="Search" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {this.value = 'Search';}">
                     <input type="submit" value="">
                 </div>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
 <!--bottom-header-->
 
 <div class="content">
-    @yield('content')
+    {{ $slot }}
 </div>
 
 <!--information-starts-->
@@ -243,24 +246,19 @@
 </div>
 <!--information-end-->
 <!--footer-starts-->
-<div class="footer">
-    <div class="container">
-        <div class="footer-top">
-            <div class="col-md-6 footer-left">
-                <form>
-                    <input type="text" value="Enter Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-                    <input type="submit" value="Subscribe">
-                </form>
-            </div>
-            <div class="col-md-6 footer-right">
-                <p>© 2015 Luxury Watches. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-
-<!--footer-end-->
+<x-footer.index>
+    <x-footer.content class="footer-left">
+        <form >
+            <x-input type="text" value="Enter Your Email" onfocus="this.value = '';"
+                     onblur="if (this.value == '') {this.value = 'Enter Your Email';}"/>
+            <x-input type="submit" value="Subscribe" />
+        </form>
+    </x-footer.content>
+    <x-footer.content class="footer-right">
+       <p>© 2015 Luxury Watches. All Rights Reserved | Design by <x-shop-link :href="route('home')"
+                                                                                 target="_blank">{{ __('W3layouts') }}</x-shop-link></p>
+    </x-footer.content>
+</x-footer.index>
 
 <!--script-start-->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
@@ -287,7 +285,7 @@
 </script>
 <script>
     // Can also be used with $(document).ready()
-    $(window).load(function() {
+    $(window).load(function () {
         $('.flexslider').flexslider({
             animation: "slide",
             controlNav: "thumbnails"
@@ -295,31 +293,31 @@
     });
 </script>
 <script type="text/javascript">
-    $(function() {
+    $(function () {
 
         var menu_ul = $('.menu_drop > li > ul'),
-            menu_a  = $('.menu_drop > li > a');
+            menu_a = $('.menu_drop > li > a');
 
         menu_ul.hide();
 
-        menu_a.click(function(e) {
+        menu_a.click(function (e) {
             e.preventDefault();
-            if(!$(this).hasClass('active')) {
+            if (!$(this).hasClass('active')) {
                 menu_a.removeClass('active');
                 menu_ul.filter(':visible').slideUp('normal');
-                $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                $(this).addClass('active').next().stop(true, true).slideDown('normal');
             } else {
                 $(this).removeClass('active');
-                $(this).next().stop(true,true).slideUp('normal');
+                $(this).next().stop(true, true).slideUp('normal');
             }
         });
 
     });
 </script>
 <script>
-    $('#currency').change(function(){
+    $('#currency').change(function () {
         //window.location  = 'currency/change?curr=' + $(this).val();
-        window.location = "{{ route('currency')}}?curr="+ $(this).val();
+        window.location = "{{ route('currency')}}?curr=" + $(this).val();
     });
 
 </script>

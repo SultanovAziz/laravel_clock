@@ -1,7 +1,4 @@
-@extends('layout.layout')
-
-
-@section('content')
+<x-app-layout :currency="$currency">
         <!--banner-starts-->
         <div class="bnr" id="home">
             <div  id="top" class="callbacks_container">
@@ -42,9 +39,6 @@
             </div>
         <!--about-end-->
         @endif
-        @php
-            $currency = App\Facades\Currency::getCurrency(App\Facades\Currency::getCurrencies());
-        @endphp
         @if ($hits)
             <!--product-starts-->
             <div class="product">
@@ -83,4 +77,5 @@
             </div>
             <!--product-end-->
     @endif
-@endsection
+
+</x-app-layout>
