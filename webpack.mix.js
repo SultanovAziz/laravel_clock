@@ -28,7 +28,7 @@ mix.scripts([
     'resources/assets/js/responsiveslides.min.js',
 ],'public/assets/js/scripts.js');
 
-mix.copyDirectory('resources/assets/images','public/assets/images');
+mix.copyDirectory('resources/assets/images','public/storage/images');
 mix.copyDirectory('resources/assets/fonts','public/assets/fonts');
 
 mix.copy('resources/assets/css/bootstrap.css.map','public/assets/css/bootstrap.css.map');

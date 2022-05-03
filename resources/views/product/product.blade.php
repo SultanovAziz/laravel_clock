@@ -1,11 +1,9 @@
-@extends('layout.layout')
-
-@section('content')
+<x-app-layout :currency="$currency">
     <!--start-breadcrumbs-->
     <div class="breadcrumbs">
         <div class="container">
             <div class="breadcrumbs-main">
-                    {{ Breadcrumbs::render('product',$product) }}
+                    {{   \DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::render('product',$product) }}
             </div>
         </div>
     </div>
@@ -33,9 +31,6 @@
                         <!-- FlexSlider -->
 
                         </div>
-                        @php
-                          $currency = App\Facades\Currency::getCurrency(App\Facades\Currency::getCurrencies());
-                        @endphp
                         <div class="col-md-7 single-top-right">
                             <div class="single-para simpleCart_shelfItem">
                                 <h2>{{ $product->title }}</h2>
@@ -273,5 +268,4 @@
         </div>
     </div>
     <!--end-single-->
-
-@endsection
+</x-app-layout>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\Currency;
 use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -21,7 +22,9 @@ class CategoriesController extends Controller
         $ids = !$ids ? $categories->id : $ids. $categories->id;
         $ids = explode(',',trim($ids,','));
         $products = Product::whereIn('categories_id',$ids)->get()->chunk(3);
-        return view('categories',compact('categories','products'));
+        $currency = Currency::getCurrency(Currency::getCurrencies());
+
+        return view('categories',compact('categories','products','currency'));
     }
 
     public function getIds($id)

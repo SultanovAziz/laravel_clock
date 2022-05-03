@@ -21,7 +21,7 @@ class RecentlyViewedService
         }
     }
 
-    public function getRecentlyViewed(Request $request)
+    public function getRecentlyViewed()
     {
         if (!empty($_COOKIE['recentlyViewed'])) {
             $recentlyViewed = $_COOKIE['recentlyViewed'];

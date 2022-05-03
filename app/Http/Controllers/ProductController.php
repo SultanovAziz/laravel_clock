@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\Currency;
 use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class ProductController extends Controller
         if ($viewed) {
             $recentlyViewed = Product::whereIn('id', $viewed)->get();
         }
-        return view('product.product', compact('product', 'gallery', 'mods', 'reladet', 'recentlyViewed'));
+        $currency = Currency::getCurrency(Currency::getCurrencies());
+        return view('product.product', compact('product', 'gallery', 'mods', 'reladet', 'recentlyViewed','currency'));
     }
 
 

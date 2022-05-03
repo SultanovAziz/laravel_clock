@@ -4,13 +4,13 @@
             <div  id="top" class="callbacks_container">
                 <ul class="rslides" id="slider4">
                     <li>
-                        <img src="{{ asset('assets/images/bnr-1.jpg') }}" alt=""/>
+                        <img src="{{ asset('storage/images/bnr-1.jpg') }}" alt=""/>
                     </li>
                     <li>
-                        <img src="{{ asset('assets/images/bnr-2.jpg') }}" alt=""/>
+                        <img src="{{ asset('storage/images/bnr-2.jpg') }}" alt=""/>
                     </li>
                     <li>
-                        <img src="{{ asset('assets/images/bnr-3.jpg') }}" alt=""/>
+                        <img src="{{ asset('storage/images/bnr-3.jpg') }}" alt=""/>
                     </li>
                 </ul>
             </div>
@@ -25,7 +25,7 @@
                         @foreach($brands as $brand)
                             <div class="col-md-4 about-left">
                                 <figure class="effect-bubba">
-                                    <img class="img-responsive" src="{{ asset("assets/images/{$brand->img}") }}" alt=""/>
+                                    <img class="img-responsive" src="{{ asset($brand->img) }}" alt=""/>
                                     <figcaption>
                                         <h2>{{ $brand->title }}</h2>
                                         <p>{{ $brand->description }}</p>
@@ -49,7 +49,7 @@
                                 @foreach($hits[$i] as $hit)
                                     <div class="col-md-3 product-left">
                                         <div class="product-main simpleCart_shelfItem">
-                                            <a href="product/{{$hit->alias}}" class="mask"><img class="img-responsive zoom-img" src="{{asset("assets/images/{$hit->img}")}}" alt="" /></a>
+                                            <a href="product/{{$hit->alias}}" class="mask"><img class="img-responsive zoom-img" src="{{asset("storage/images/{$hit->img}")}}" alt="" /></a>
                                             <div class="product-bottom">
                                                 <h3><a href="product/{{ $hit->alias }}">{{ $hit->title }}</a></h3>
                                                 <p>Explore Now</p>

@@ -1,18 +1,13 @@
-@extends('layout.layout')
-
-@section('content')
+<x-app-layout :currency="$currency">
     <div class="content">
         <div class="breadcrumbs">
             <div class="container">
                 <div class="breadcrumbs-main">
-                    {{ Breadcrumbs::render('categories',$categories) }}
+                    {{ \DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::render('categories',$categories) }}
                 </div>
             </div>
         </div>
         <!--prdt-starts-->
-        @php
-            $currency = App\Facades\Currency::getCurrency(App\Facades\Currency::getCurrencies());
-        @endphp
         <div class="prdt">
             <div class="container">
                 <div class="prdt-top">
@@ -73,5 +68,4 @@
         <!--product-end-->
     </div>
 
-
-@endsection
+</x-app-layout>
