@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
+use Orchid\Screen\Concerns\Multipliable;
 
 class Product extends Model
 {
-    use HasFactory,AsSource,Attachable,Filterable;
+    use HasFactory,AsSource,Attachable,Filterable,Multipliable;
 
     protected $fillable = [
         'categories_id',

@@ -19,14 +19,14 @@
                                 <div class="flexslider">
                                     <ul class="slides">
                                         @foreach($gallery as $item)
-                                        <li data-thumb="{{ url("/assets/images/$item->img")}}">
-                                            <div class="thumb-image"> <img src="{{ asset("assets/images/{$item->img}") }}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+                                        <li data-thumb="{{ url("storage/images/$item->img")}}">
+                                            <div class="thumb-image"> <img src="{{ asset("storage/images/{$item->img}") }}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
                                         </li>
                                         @endforeach
                                     </ul>
                             </div>
                             @else
-                                <img src="{{ asset("assets/images/{$product->img}") }}" alt="">
+                                <img src="{{ asset($product->img) }}" alt="">
                             @endif
                         <!-- FlexSlider -->
 
@@ -85,33 +85,33 @@
                     </div>
                     <div class="tabs">
                         <ul class="menu_drop">
-                            <li class="item1"><a href="#"><img src="{{ asset('assets/images/arrow.png') }}" alt="">Description</a>
+                            <li class="item1"><a href="#"><img src="{{ asset('storage/images/arrow.png') }}" alt="">Description</a>
                                 <ul>
                                     <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a></li>
                                     <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
                                     <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
                                 </ul>
                             </li>
-                            <li class="item2"><a href="#"><img src="{{ asset('assets/images/arrow.png') }}" alt="">Additional information</a>
+                            <li class="item2"><a href="#"><img src="{{ asset('storage/images/arrow.png') }}" alt="">Additional information</a>
                                 <ul>
                                     <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
                                     <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
                                 </ul>
                             </li>
-                            <li class="item3"><a href="#"><img src="{{ asset('assets/images/arrow.png') }}" alt="">Reviews (10)</a>
+                            <li class="item3"><a href="#"><img src="{{ asset('storage/images/arrow.png') }}" alt="">Reviews (10)</a>
                                 <ul>
                                     <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a></li>
                                     <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
                                     <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
                                 </ul>
                             </li>
-                            <li class="item4"><a href="#"><img src="{{ asset('assets/images/arrow.png') }}" alt="">Helpful Links</a>
+                            <li class="item4"><a href="#"><img src="{{ asset('storage/images/arrow.png') }}" alt="">Helpful Links</a>
                                 <ul>
                                     <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
                                     <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
                                 </ul>
                             </li>
-                            <li class="item5"><a href="#"><img src="{{ asset('assets/images/arrow.png') }}" alt="">Make A Gift</a>
+                            <li class="item5"><a href="#"><img src="{{ asset('storage/images/arrow.png') }}" alt="">Make A Gift</a>
                                 <ul>
                                     <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a></li>
                                     <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
@@ -127,7 +127,7 @@
                             @foreach($reladet as $item)
                                 <div class="col-md-4 product-left p-left">
                                     <div class="product-main simpleCart_shelfItem">
-                                        <a href="{{ $item->alias }}" class="mask"><img class="img-responsive zoom-img" src="{{ asset("assets/images/{$item->img}") }}" alt="" /></a>
+                                        <a href="{{ $item->alias }}" class="mask"><img class="img-responsive zoom-img" src="{{ asset($item->img) }}" alt="" /></a>
                                         <div class="product-bottom">
                                             <h3><a href="{{$item->alias}}">{{ $item->title }}</a></h3>
                                             <p>Explore Now</p>
@@ -158,7 +158,7 @@
                                 @foreach($recentlyViewed as $item)
                                     <div class="col-md-4 product-left p-left">
                                         <div class="product-main simpleCart_shelfItem">
-                                            <a href="{{ $item->alias }}" class="mask"><img class="img-responsive zoom-img" src="{{ asset("assets/images/{$item->img}") }}" alt="" /></a>
+                                            <a href="{{ $item->alias }}" class="mask"><img class="img-responsive zoom-img" src="{{ asset($item->img) }}" alt="" /></a>
                                             <div class="product-bottom">
                                                 <h3><a href="{{$item->alias}}">{{ $item->title }}</a></h3>
                                                 <p>Explore Now</p>

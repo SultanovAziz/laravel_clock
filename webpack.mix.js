@@ -28,6 +28,11 @@ mix.scripts([
     'resources/assets/js/responsiveslides.min.js',
 ],'public/assets/js/scripts.js');
 
+mix.js("resources/js/app.js", "public/js")
+    .postCss("resources/css/app.css", "public/css", [
+        require("tailwindcss"),
+    ]);
+
 mix.copyDirectory('resources/assets/images','public/storage/images');
 mix.copyDirectory('resources/assets/fonts','public/assets/fonts');
 

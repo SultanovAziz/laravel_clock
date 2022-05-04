@@ -18,7 +18,7 @@
                                     @foreach($products[$i] as $product)
                                         <div class="col-md-4 product-left p-left">
                                             <div class="product-main simpleCart_shelfItem">
-                                                <a href="{{ route('product.alias',['alias' => $product->alias]) }}" class="mask"><img class="img-responsive zoom-img"                                                   src="{{ asset("assets/images/{$product->img}") }}" alt="" /></a>
+                                                <a href="{{ route('product.alias',['alias' => $product->alias]) }}" class="mask"><img class="img-responsive zoom-img"                                                   src="{{ asset($product->img) }}" alt="" /></a>
                                                 <div class="product-bottom">
                                                     <h3>{{ $product->title }}</h3>
                                                     <p>Explore Now</p>
